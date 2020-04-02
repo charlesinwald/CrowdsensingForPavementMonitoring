@@ -21,37 +21,131 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.location.Location;
 import android.media.Image;
 import android.media.Image.Plane;
 import android.media.ImageReader;
 import android.media.ImageReader.OnImageAvailableListener;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Trace;
+import android.util.Log;
 import android.util.Size;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.IgnoreExtraProperties;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import org.tensorflow.dot.env.ImageUtils;
 import org.tensorflow.dot.env.Logger;
-import org.tensorflow.dot.R; // Explicit import needed for internal Google builds.
+
+@IgnoreExtraProperties
+class Value {
+  public float confidence;
+  public float x;
+  public float y;
+  public float z;
+
+  public Value() {
+    // Default constructor required for calls to DataSnapshot.getValue(User.class)
+  }
+
+  public Value(float confidence, float x, float y, float z) {
+    this.confidence = confidence;
+    this.x = x;
+    this.y = y;
+    this.z = z;
+  }
+
+}
+
+class Url {
+  public Uri uri;
+
+  public Url(){
+
+  }
+
+  public Url(Uri uri){
+    this.uri = uri;
+  }
+}
+
+
+class Spot {
+  public float longitude;
+  public float latitude;
+  public float confidence;
+  public String imgUrl;
+//  public float x;
+//  public float y;
+//  public float z;
+
+  public Spot() {
+    // Default constructor required for calls to DataSnapshot.getValue(User.class)
+  }
+
+  public Spot(float longitude, float latitude, float confidence,String imgUrl) {
+    this.longitude = longitude;
+    this.latitude = latitude;
+    this.confidence = confidence;
+    this.imgUrl = imgUrl;
+//    this.x = x;
+//    this.y = y;
+//    this.z = z;
+  }
+
+}
+
 
 public abstract class CameraActivity extends Activity
-    implements OnImageAvailableListener, Camera.PreviewCallback {
+        implements OnImageAvailableListener, Camera.PreviewCallback {
   private static final Logger LOGGER = new Logger();
 
   private static final int PERMISSIONS_REQUEST = 1;
 
   private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
   private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+  private static final String PERMISSION_LOCATION1 = Manifest.permission.ACCESS_COARSE_LOCATION;
+  private static final String PERMISSION_LOCATION2 = Manifest.permission.ACCESS_FINE_LOCATION;
+
 
   private boolean debug = false;
 
@@ -69,6 +163,33 @@ public abstract class CameraActivity extends Activity
   private Runnable postInferenceCallback;
   private Runnable imageConverter;
 
+  public HashMap<byte[],HashMap<String,Float>> map = new HashMap<>();
+
+  public Uri imgUri;
+
+  StringBuilder location;
+
+
+//  private DatabaseReference valuesRef;// ...
+
+
+  private static final String TAG = CameraActivity.class.getSimpleName();
+
+
+  /**
+   * Provides the entry point to the Fused Location Provider API.
+   */
+  private FusedLocationProviderClient mFusedLocationClient;
+
+  /**
+   * Represents a geographical location.
+   */
+  protected Location mLastLocation;
+
+
+
+
+
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
     LOGGER.d("onCreate " + this);
@@ -77,8 +198,11 @@ public abstract class CameraActivity extends Activity
 
     setContentView(R.layout.activity_camera);
 
+    mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
     if (hasPermission()) {
       setFragment();
+
     } else {
       requestPermission();
     }
@@ -129,22 +253,22 @@ public abstract class CameraActivity extends Activity
     yRowStride = previewWidth;
 
     imageConverter =
-        new Runnable() {
-          @Override
-          public void run() {
-            ImageUtils.convertYUV420SPToARGB8888(bytes, previewWidth, previewHeight, rgbBytes);
-          }
-        };
+            new Runnable() {
+              @Override
+              public void run() {
+                ImageUtils.convertYUV420SPToARGB8888(bytes, previewWidth, previewHeight, rgbBytes);
+              }
+            };
 
     postInferenceCallback =
-        new Runnable() {
-          @Override
-          public void run() {
-            camera.addCallbackBuffer(bytes);
-            isProcessingFrame = false;
-          }
-        };
-    processImage();
+            new Runnable() {
+              @Override
+              public void run() {
+                camera.addCallbackBuffer(bytes);
+                isProcessingFrame = false;
+              }
+            };
+    map = processImage();
   }
 
   /**
@@ -179,32 +303,32 @@ public abstract class CameraActivity extends Activity
       final int uvPixelStride = planes[1].getPixelStride();
 
       imageConverter =
-          new Runnable() {
-            @Override
-            public void run() {
-              ImageUtils.convertYUV420ToARGB8888(
-                  yuvBytes[0],
-                  yuvBytes[1],
-                  yuvBytes[2],
-                  previewWidth,
-                  previewHeight,
-                  yRowStride,
-                  uvRowStride,
-                  uvPixelStride,
-                  rgbBytes);
-            }
-          };
+              new Runnable() {
+                @Override
+                public void run() {
+                  ImageUtils.convertYUV420ToARGB8888(
+                          yuvBytes[0],
+                          yuvBytes[1],
+                          yuvBytes[2],
+                          previewWidth,
+                          previewHeight,
+                          yRowStride,
+                          uvRowStride,
+                          uvPixelStride,
+                          rgbBytes);
+                }
+              };
 
       postInferenceCallback =
-          new Runnable() {
-            @Override
-            public void run() {
-              image.close();
-              isProcessingFrame = false;
-            }
-          };
+              new Runnable() {
+                @Override
+                public void run() {
+                  image.close();
+                  isProcessingFrame = false;
+                }
+              };
 
-      processImage();
+      map = processImage();
     } catch (final Exception e) {
       LOGGER.e(e, "Exception!");
       Trace.endSection();
@@ -227,6 +351,116 @@ public abstract class CameraActivity extends Activity
     handlerThread = new HandlerThread("inference");
     handlerThread.start();
     handler = new Handler(handlerThread.getLooper());
+
+
+    Timer timer = new Timer();
+
+    TimerTask timerTask = new TimerTask() {
+      @Override
+      public void run() {
+
+        System.out.println("11111");
+//        if(map.containsKey("confidence")  && map.containsKey("x")){
+
+
+
+//            Spot spot = new Spot(map.get("longitude"),map.get("latitude"),map.get("confidence"), map.get("x"),map.get("y"),map.get("z"));
+
+
+          for(byte[] key:map.keySet()){
+
+            if(map.get(key).containsKey("confidence")){
+
+//              DatabaseReference valuesRef = FirebaseDatabase.getInstance().getReference("spot");
+////              StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+//
+//              String reportId = valuesRef.push().getKey();
+////              final StorageReference imgRef = storageRef.child("spot").child(reportId+".jpeg");
+//
+//              Spot spot = new Spot(map.get(key).get("longitude"),map.get(key).get("latitude"),map.get(key).get("confidence"));
+//              valuesRef.child(reportId).setValue(spot);
+//
+//              HashMap<String,String> uriMap = getUrl(reportId,key);
+//              System.out.println(uriMap.get("uri"));
+
+                getUrl(key);
+
+
+
+            }
+            break;
+          }
+
+//        map.clear();
+
+        }
+
+
+
+    };
+
+    timer.schedule(timerTask,
+            0,//延迟1秒执行
+            1000);//周期时间
+
+
+
+
+
+
+//    Timer timer = new Timer();
+//
+//    TimerTask timerTask = new TimerTask() {
+//      @Override
+//      public void run() {
+//
+//        valuesRef = FirebaseDatabase.getInstance().getReference();
+//
+//
+//        if(map.containsKey("confidence")){
+//          Value value = new Value(map.get("confidence"), map.get("xmax")-map.get("xmin"),map.get("ymax")-map.get("ymin"),map.get("zmax")-map.get("zmin"));
+//          location = new StringBuilder();
+//          location.append(map.get("longitude")).append("_").append(map.get("latitude"));
+//          valuesRef.child(location.toString().replace(".",",")).setValue(value);
+//        }
+//        map.clear();
+//      }
+//    };
+//
+//    timer.schedule(timerTask,
+//            1000,//延迟1秒执行
+//            5000);//周期时间
+  }
+
+  private HashMap<String,String> getUrl(final byte[] key){
+    StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+
+    final HashMap<String, String> uriMap= new HashMap<>();
+
+
+    final DatabaseReference valuesRef = FirebaseDatabase.getInstance().getReference("spot");
+    final String reportId = valuesRef.push().getKey();
+    final StorageReference imgRef = storageRef.child("spot").child(reportId+".jpeg");
+    UploadTask uploadTask = imgRef.putBytes(key);
+    uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+      @Override
+      public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+        imgRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+          @Override
+          public void onSuccess(Uri uri) {
+            Log.d(TAG, "onSuccess: uri= "+ uri.toString());
+            uriMap.put("uri",uri.toString());
+            Spot spot = new Spot(map.get(key).get("longitude"),map.get(key).get("latitude"),map.get(key).get("confidence"),uri.toString());
+            valuesRef.child(reportId).setValue(spot);
+            System.out.println("neibu"+uriMap.get("uri"));
+
+          }
+        });
+      }
+    });
+    System.out.println("waibu"+uriMap.get("uri"));
+
+    return uriMap;
   }
 
   @Override
@@ -270,11 +504,14 @@ public abstract class CameraActivity extends Activity
 
   @Override
   public void onRequestPermissionsResult(
-      final int requestCode, final String[] permissions, final int[] grantResults) {
+          final int requestCode, final String[] permissions, final int[] grantResults) {
     if (requestCode == PERMISSIONS_REQUEST) {
       if (grantResults.length > 0
-          && grantResults[0] == PackageManager.PERMISSION_GRANTED
-          && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+              && grantResults[0] == PackageManager.PERMISSION_GRANTED
+              && grantResults[1] == PackageManager.PERMISSION_GRANTED
+              && grantResults[2] == PackageManager.PERMISSION_GRANTED
+              && grantResults[3] == PackageManager.PERMISSION_GRANTED
+      ) {
         setFragment();
       } else {
         requestPermission();
@@ -285,7 +522,9 @@ public abstract class CameraActivity extends Activity
   private boolean hasPermission() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
       return checkSelfPermission(PERMISSION_CAMERA) == PackageManager.PERMISSION_GRANTED &&
-          checkSelfPermission(PERMISSION_STORAGE) == PackageManager.PERMISSION_GRANTED;
+              checkSelfPermission(PERMISSION_STORAGE) == PackageManager.PERMISSION_GRANTED &&
+              checkSelfPermission(PERMISSION_LOCATION1)== PackageManager.PERMISSION_GRANTED &&
+              checkSelfPermission(PERMISSION_LOCATION2)== PackageManager.PERMISSION_GRANTED;
     } else {
       return true;
     }
@@ -294,17 +533,26 @@ public abstract class CameraActivity extends Activity
   private void requestPermission() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
       if (shouldShowRequestPermissionRationale(PERMISSION_CAMERA) ||
-          shouldShowRequestPermissionRationale(PERMISSION_STORAGE)) {
+              shouldShowRequestPermissionRationale(PERMISSION_STORAGE) ||
+              shouldShowRequestPermissionRationale(PERMISSION_LOCATION1) ||
+              shouldShowRequestPermissionRationale(PERMISSION_LOCATION2)
+      ) {
         Toast.makeText(CameraActivity.this,
-            "Camera AND storage permission are required for this demo", Toast.LENGTH_LONG).show();
+                "Camera AND storage permission are required for this demo", Toast.LENGTH_LONG).show();
       }
-      requestPermissions(new String[] {PERMISSION_CAMERA, PERMISSION_STORAGE}, PERMISSIONS_REQUEST);
+      requestPermissions(new String[] {PERMISSION_CAMERA, PERMISSION_STORAGE, PERMISSION_LOCATION1, PERMISSION_LOCATION2}, PERMISSIONS_REQUEST);
     }
   }
 
+
+
+
+
+
+
   // Returns true if the device supports the required hardware level, or better.
   private boolean isHardwareLevelSupported(
-      CameraCharacteristics characteristics, int requiredLevel) {
+          CameraCharacteristics characteristics, int requiredLevel) {
     int deviceLevel = characteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
     if (deviceLevel == CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY) {
       return requiredLevel == deviceLevel;
@@ -326,14 +574,14 @@ public abstract class CameraActivity extends Activity
         }
 
         final StreamConfigurationMap map =
-            characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+                characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
 
         if (map == null) {
           continue;
         }
 
         useCamera2API = isHardwareLevelSupported(characteristics,
-            CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_FULL);
+                CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_FULL);
         LOGGER.i("Camera API lv2?: %s", useCamera2API);
         return cameraId;
       }
@@ -350,30 +598,30 @@ public abstract class CameraActivity extends Activity
     Fragment fragment;
     if (useCamera2API) {
       CameraConnectionFragment camera2Fragment =
-          CameraConnectionFragment.newInstance(
-              new CameraConnectionFragment.ConnectionCallback() {
-                @Override
-                public void onPreviewSizeChosen(final Size size, final int rotation) {
-                  previewHeight = size.getHeight();
-                  previewWidth = size.getWidth();
-                  CameraActivity.this.onPreviewSizeChosen(size, rotation);
-                }
-              },
-              this,
-              getLayoutId(),
-              getDesiredPreviewFrameSize());
+              CameraConnectionFragment.newInstance(
+                      new CameraConnectionFragment.ConnectionCallback() {
+                        @Override
+                        public void onPreviewSizeChosen(final Size size, final int rotation) {
+                          previewHeight = size.getHeight();
+                          previewWidth = size.getWidth();
+                          CameraActivity.this.onPreviewSizeChosen(size, rotation);
+                        }
+                      },
+                      this,
+                      getLayoutId(),
+                      getDesiredPreviewFrameSize());
 
       camera2Fragment.setCamera(cameraId);
       fragment = camera2Fragment;
     } else {
       fragment =
-          new LegacyCameraConnectionFragment(this, getLayoutId(), getDesiredPreviewFrameSize());
+              new LegacyCameraConnectionFragment(this, getLayoutId(), getDesiredPreviewFrameSize());
     }
 
     getFragmentManager()
-        .beginTransaction()
-        .replace(R.id.container, fragment)
-        .commit();
+            .beginTransaction()
+            .replace(R.id.container, fragment)
+            .commit();
   }
 
   protected void fillBytes(final Plane[] planes, final byte[][] yuvBytes) {
@@ -426,7 +674,7 @@ public abstract class CameraActivity extends Activity
     }
   }
 
-  protected abstract void processImage();
+  protected abstract HashMap processImage();
 
   protected abstract void onPreviewSizeChosen(final Size size, final int rotation);
   protected abstract int getLayoutId();

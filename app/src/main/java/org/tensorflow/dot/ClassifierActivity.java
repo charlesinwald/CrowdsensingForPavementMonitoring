@@ -25,6 +25,10 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.media.ImageReader.OnImageAvailableListener;
 import android.os.Bundle;
@@ -33,7 +37,9 @@ import android.util.Log;
 import android.util.Size;
 import android.util.TypedValue;
 import android.view.Display;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -47,9 +53,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 
 import org.tensorflow.dot.OverlayView.DrawCallback;
@@ -81,7 +94,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     private ResultsView resultsView;
 
     private Bitmap rgbFrameBitmap = null;
-    private Bitmap croppedBitmap = null;
+    public Bitmap croppedBitmap = null;
     private Bitmap cropCopyBitmap = null;
 
     private long lastProcessingTimeMs;
@@ -137,6 +150,14 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     private Matrix frameToCropTransform;
     private Matrix cropToFrameTransform;
 
+    HashMap<String, Float> map = new HashMap<>();
+    HashMap<String, Float> show = new HashMap<>();
+    HashMap<byte[], HashMap<String,Float>> dataMap = new HashMap<>();
+
+    private FusedLocationProviderClient mFusedLocationClient;
+
+    private float longtitude;
+    private float latitude;
 
     private BorderedText borderedText;
 
@@ -155,6 +176,8 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
     @Override
     public void onPreviewSizeChosen(final Size size, final int rotation) {
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         final float textSizePx = TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
         borderedText = new BorderedText(textSizePx);
@@ -203,11 +226,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     }
 
 //    protected void getLocation() {
-////        try {
-////            Thread.sleep(1);
-////        } catch (InterruptedException e) {
-////            e.printStackTrace();
-////        }
 //        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
 //
 //        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
@@ -224,24 +242,24 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 //                                    @Override
 //                                    public void run() {
 //                                        Log.d("POST","About to send post request");
-//                                        OkHttpClient client = new OkHttpClient();
+////                                        OkHttpClient client = new OkHttpClient();
 //                                        MediaType mediaType = MediaType.parse("application/json");
 //                                        String lat = String.valueOf(locations.get(locations.size() - 1).getLatitude());
 //                                        String long2 = String.valueOf(locations.get(locations.size() - 1).getLongitude());
-//                                        RequestBody body = RequestBody.create(mediaType, "{\n  \"lat\": " + lat + ",\n  \"long\": " + long2 + "\n}");
-//                                        Request request = new Request.Builder()
-//                                                .url("http://root@vps263488.vps.ovh.ca:4000/potholes?lat=" + lat + "&long=" + long2)
-//                                                .post(body)
-//                                                .addHeader("Content-Type", "application/json")
-//                                                .addHeader("cache-control", "no-cache")
-//                                                .addHeader("Postman-Token", "a52a8869-4573-49dd-9937-6f77208f2ebd")
-//                                                .build();
+////                                        RequestBody body = RequestBody.create(mediaType, "{\n  \"lat\": " + lat + ",\n  \"long\": " + long2 + "\n}");
+////                                        Request request = new Request.Builder()
+////                                                .url("http://root@vps263488.vps.ovh.ca:4000/potholes?lat=" + lat + "&long=" + long2)
+////                                                .post(body)
+////                                                .addHeader("Content-Type", "application/json")
+////                                                .addHeader("cache-control", "no-cache")
+////                                                .addHeader("Postman-Token", "a52a8869-4573-49dd-9937-6f77208f2ebd")
+////                                                .build();
 //
-//                                        try {
-//                                            Response response = client.newCall(request).execute();
-//                                        } catch (IOException e) {
-//                                            e.printStackTrace();
-//                                        }
+////                                        try {
+////                                            Response response = client.newCall(request).execute();
+////                                        } catch (IOException e) {
+////                                            e.printStackTrace();
+////                                        }
 //                                    }
 //
 //                                });
@@ -249,19 +267,35 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 //                        }
 //                    });
 //        }
-//
-//
-//
 //    }
 
+    private void getLastLocation() {
+        mFusedLocationClient.getLastLocation()
+                .addOnCompleteListener(this, new OnCompleteListener<Location>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Location> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            mLastLocation = task.getResult();
+
+                                    latitude = (float)mLastLocation.getLatitude();
+                                    longtitude = (float)mLastLocation.getLongitude();
+                        } else {
+                            Log.w(TAG, "getLastLocation:exception", task.getException());
+                        }
+                    }
+                });
+    }
 
     @Override
-    protected void processImage() {
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+    protected HashMap<byte[] ,HashMap<String, Float>> processImage() {
+
+//        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         rgbFrameBitmap.setPixels(getRgbBytes(), 0, previewWidth, 0, 0, previewWidth, previewHeight);
         final Canvas canvas = new Canvas(croppedBitmap);
         canvas.drawBitmap(rgbFrameBitmap, frameToCropTransform, null);
+
+
 
         // For examining the actual TF input.
         if (SAVE_PREVIEW_BITMAP) {
@@ -276,11 +310,97 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
                         Recognition result = results.get(0);
 
-                        if (result.getId().equals(String.valueOf(1))) {
-//                            Log.d("test", "We have a pothole sarge");
-//                            getLocation();
+
+//                        if(map.containsKey("confidence")){
+//                            map.put("confidence", Math.max(map.get("confidence"),result.getConfidence()));
+//                        }else{
+//                            map.put("confidence",result.getConfidence());
+//                        }
+
+                        getLastLocation();
+
+//                        map.put("longitude",longtitude);
+//                        map.put("latitude",latitude);
+
+//                        if(result.getConfidence()>0.9 && !(latitude ==0.0 && longtitude==0.0 )){
+                        if(result.getConfidence()>0.5){
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            croppedBitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
+                            byte[] data = baos.toByteArray();
+
+                            show.put("longitude",longtitude);
+                            show.put("latitude",latitude);
+                            show.put("confidence", result.getConfidence());
+                            dataMap.put(data, show);
 
                         }
+
+//                        SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+//                        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+//
+//                        sensorManager.registerListener(new SensorEventListener() {
+//                            @Override
+//                            public void onSensorChanged(SensorEvent event) {
+//                                float x = event.values[0];
+//                                float y = event.values[1];
+//                                float z = event.values[2];
+//
+//                                if(show.containsKey("confidence")){
+//                                    show.put("x", x);
+//                                    show.put("y", y);
+//                                    show.put("z", z);
+//                                }
+//
+//
+////                                if(map.containsKey("xmax")){
+////                                    map.put("xmax", Math.max(map.get("xmax"),x));
+////                                }else{
+////                                    map.put("xmax",x);
+////                                }
+////
+////                                if(map.containsKey("ymax")){
+////                                    map.put("ymax", Math.max(map.get("ymax"),y));
+////                                }else{
+////                                    map.put("ymax",x);
+////                                }
+////
+////                                if(map.containsKey("zmax")){
+////                                    map.put("zmax", Math.max(map.get("zmax"),z));
+////                                }else{
+////                                    map.put("zmax",x);
+////                                }
+////
+////                                if(map.containsKey("xmin")){
+////                                    map.put("xmin", Math.min(map.get("xmin"),x));
+////                                }else{
+////                                    map.put("xmin",x);
+////                                }
+////
+////                                if(map.containsKey("ymin")){
+////                                    map.put("ymin", Math.min(map.get("ymin"),y));
+////                                }else{
+////                                    map.put("ymin",x);
+////                                }
+////
+////                                if(map.containsKey("zmin")){
+////                                    map.put("zmin", Math.min(map.get("zmin"),z));
+////                                }else{
+////                                    map.put("zmin",x);
+////                                }
+//                            }
+//
+//                            @Override
+//                            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+//                            }
+//
+//                        }, sensor, SensorManager.SENSOR_DELAY_FASTEST);
+
+
+//                        if (result.getId().equals(String.valueOf(1))) {
+////                            Log.d("test", "We have a pothole sarge");
+////                            getLocation();
+//
+//                        }
 
 //                        Log.d("test", results.get(0).getId());
 //                        if (results.get(0).getId().equals(String.valueOf(3))) {
@@ -294,13 +414,14 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                             resultsView = (ResultsView) findViewById(R.id.results);
                         }
                         resultsView.setResults(result);
-                requestRender();
-                readyForNextImage();
-            }
+                        requestRender();
+                        readyForNextImage();
+                    }
         });
 
 
-
+//        return map;
+        return dataMap;
 }
 
     @Override
