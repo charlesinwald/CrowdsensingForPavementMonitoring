@@ -20,7 +20,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -43,10 +42,8 @@ import android.os.Trace;
 import android.util.Log;
 import android.util.Size;
 import android.view.KeyEvent;
-import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -99,25 +96,40 @@ class Value {
 
 }
 
+class Url {
+  public Uri uri;
+
+  public Url(){
+
+  }
+
+  public Url(Uri uri){
+    this.uri = uri;
+  }
+}
 
 
 class Spot {
   public float longitude;
   public float latitude;
   public float confidence;
-  public String type;
   public String imgUrl;
+//  public float x;
+//  public float y;
+//  public float z;
 
   public Spot() {
     // Default constructor required for calls to DataSnapshot.getValue(User.class)
   }
 
-  public Spot(float longitude, float latitude, float confidence,String imgUrl,String type){
+  public Spot(float longitude, float latitude, float confidence,String imgUrl) {
     this.longitude = longitude;
     this.latitude = latitude;
     this.confidence = confidence;
     this.imgUrl = imgUrl;
-    this.type = type;
+//    this.x = x;
+//    this.y = y;
+//    this.z = z;
   }
 
 }
@@ -133,6 +145,7 @@ public abstract class CameraActivity extends Activity
   private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
   private static final String PERMISSION_LOCATION1 = Manifest.permission.ACCESS_COARSE_LOCATION;
   private static final String PERMISSION_LOCATION2 = Manifest.permission.ACCESS_FINE_LOCATION;
+
 
   private boolean debug = false;
 
@@ -150,7 +163,11 @@ public abstract class CameraActivity extends Activity
   private Runnable postInferenceCallback;
   private Runnable imageConverter;
 
-  public HashMap<byte[],HashMap<String,String>> map = new HashMap<>();
+  public HashMap<byte[],HashMap<String,Float>> map = new HashMap<>();
+
+  public Uri imgUri;
+
+  StringBuilder location;
 
 
 //  private DatabaseReference valuesRef;// ...
@@ -169,8 +186,6 @@ public abstract class CameraActivity extends Activity
    */
   protected Location mLastLocation;
 
-  private Button button1;
-
 
 
 
@@ -182,15 +197,7 @@ public abstract class CameraActivity extends Activity
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     setContentView(R.layout.activity_camera);
-    button1 = (Button) findViewById(R.id.button);
-    button1.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Intent intent = new Intent();
-        intent.setClass(CameraActivity.this, MainPage.class);
-        startActivity(intent);
-      }
-    });
+
     mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
     if (hasPermission()) {
@@ -250,8 +257,6 @@ public abstract class CameraActivity extends Activity
               @Override
               public void run() {
                 ImageUtils.convertYUV420SPToARGB8888(bytes, previewWidth, previewHeight, rgbBytes);
-
-
               }
             };
 
@@ -348,30 +353,114 @@ public abstract class CameraActivity extends Activity
     handler = new Handler(handlerThread.getLooper());
 
 
+    Timer timer = new Timer();
+
+    TimerTask timerTask = new TimerTask() {
+      @Override
+      public void run() {
+
+        System.out.println("11111");
+//        if(map.containsKey("confidence")  && map.containsKey("x")){
+
+
+
+//            Spot spot = new Spot(map.get("longitude"),map.get("latitude"),map.get("confidence"), map.get("x"),map.get("y"),map.get("z"));
+
+
+          for(byte[] key:map.keySet()){
+
+            if(map.get(key).containsKey("confidence")){
+
+//              DatabaseReference valuesRef = FirebaseDatabase.getInstance().getReference("spot");
+////              StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+//
+//              String reportId = valuesRef.push().getKey();
+////              final StorageReference imgRef = storageRef.child("spot").child(reportId+".jpeg");
+//
+//              Spot spot = new Spot(map.get(key).get("longitude"),map.get(key).get("latitude"),map.get(key).get("confidence"));
+//              valuesRef.child(reportId).setValue(spot);
+//
+//              HashMap<String,String> uriMap = getUrl(reportId,key);
+//              System.out.println(uriMap.get("uri"));
+
+                getUrl(key);
+
+
+
+            }
+            break;
+          }
+
+//        map.clear();
+
+        }
+
+
+
+    };
+
+    timer.schedule(timerTask,
+            0,//延迟1秒执行
+            1000);//周期时间
+
+
+
+
+
+
 //    Timer timer = new Timer();
 //
 //    TimerTask timerTask = new TimerTask() {
 //      @Override
 //      public void run() {
-//          for(byte[] key:map.keySet()){
 //
-//            if(map.get(key).containsKey("confidence")){
-//              getUrl(key);
+//        valuesRef = FirebaseDatabase.getInstance().getReference();
 //
-//              Log.d(TAG, "上传了！！！！！！");
-//            }
 //
-//            break;
-//          }
+//        if(map.containsKey("confidence")){
+//          Value value = new Value(map.get("confidence"), map.get("xmax")-map.get("xmin"),map.get("ymax")-map.get("ymin"),map.get("zmax")-map.get("zmin"));
+//          location = new StringBuilder();
+//          location.append(map.get("longitude")).append("_").append(map.get("latitude"));
+//          valuesRef.child(location.toString().replace(".",",")).setValue(value);
 //        }
-//
-//
-//
+//        map.clear();
+//      }
 //    };
 //
 //    timer.schedule(timerTask,
 //            1000,//延迟1秒执行
-//            1000);//周期时间
+//            5000);//周期时间
+  }
+
+  private HashMap<String,String> getUrl(final byte[] key){
+    StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+
+    final HashMap<String, String> uriMap= new HashMap<>();
+
+
+    final DatabaseReference valuesRef = FirebaseDatabase.getInstance().getReference("spot");
+    final String reportId = valuesRef.push().getKey();
+    final StorageReference imgRef = storageRef.child("spot").child(reportId+".jpeg");
+    UploadTask uploadTask = imgRef.putBytes(key);
+    uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+      @Override
+      public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+        imgRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+          @Override
+          public void onSuccess(Uri uri) {
+            Log.d(TAG, "onSuccess: uri= "+ uri.toString());
+            uriMap.put("uri",uri.toString());
+            Spot spot = new Spot(map.get(key).get("longitude"),map.get(key).get("latitude"),map.get(key).get("confidence"),uri.toString());
+            valuesRef.child(reportId).setValue(spot);
+            System.out.println("neibu"+uriMap.get("uri"));
+
+          }
+        });
+      }
+    });
+    System.out.println("waibu"+uriMap.get("uri"));
+
+    return uriMap;
   }
 
   @Override
@@ -456,6 +545,11 @@ public abstract class CameraActivity extends Activity
   }
 
 
+
+
+
+
+
   // Returns true if the device supports the required hardware level, or better.
   private boolean isHardwareLevelSupported(
           CameraCharacteristics characteristics, int requiredLevel) {
@@ -500,10 +594,6 @@ public abstract class CameraActivity extends Activity
 
   protected void setFragment() {
     String cameraId = chooseCamera();
-    if (cameraId == null) {
-      Toast.makeText(this, "No Camera Detected", Toast.LENGTH_SHORT).show();
-      finish();
-    }
 
     Fragment fragment;
     if (useCamera2API) {
@@ -569,8 +659,7 @@ public abstract class CameraActivity extends Activity
 
   @Override
   public boolean onKeyDown(final int keyCode, final KeyEvent event) {
-    if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP
-            || keyCode == KeyEvent.KEYCODE_BUTTON_L1 || keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
+    if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
       debug = !debug;
       requestRender();
       onSetDebug(debug);
@@ -582,19 +671,6 @@ public abstract class CameraActivity extends Activity
   protected void readyForNextImage() {
     if (postInferenceCallback != null) {
       postInferenceCallback.run();
-    }
-  }
-
-  protected int getScreenOrientation() {
-    switch (getWindowManager().getDefaultDisplay().getRotation()) {
-      case Surface.ROTATION_270:
-        return 270;
-      case Surface.ROTATION_180:
-        return 180;
-      case Surface.ROTATION_90:
-        return 90;
-      default:
-        return 0;
     }
   }
 
