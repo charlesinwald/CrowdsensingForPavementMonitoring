@@ -359,7 +359,6 @@ public abstract class CameraActivity extends Activity
       @Override
       public void run() {
 
-        System.out.println("11111");
 //        if(map.containsKey("confidence")  && map.containsKey("x")){
 
 

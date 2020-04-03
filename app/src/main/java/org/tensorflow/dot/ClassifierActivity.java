@@ -323,7 +323,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 //                        map.put("latitude",latitude);
 
 //                        if(result.getConfidence()>0.9 && !(latitude ==0.0 && longtitude==0.0 )){
-                        if(result.getConfidence()>0.5){
+                        if(result.getConfidence()>1.0){
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             croppedBitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
                             byte[] data = baos.toByteArray();
@@ -335,16 +335,26 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
                         }
 
-//                        SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-//                        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-//
-//                        sensorManager.registerListener(new SensorEventListener() {
-//                            @Override
-//                            public void onSensorChanged(SensorEvent event) {
-//                                float x = event.values[0];
-//                                float y = event.values[1];
-//                                float z = event.values[2];
-//
+                        SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+                        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+                        sensorManager.registerListener(new SensorEventListener() {
+                                                           @Override
+                                                           public void onSensorChanged(SensorEvent event) {
+                                                               float x = event.values[0];
+                                                               float y = event.values[1];
+                                                               float z = event.values[2];
+                                                               System.out.println(x);
+                                                               System.out.println(y);
+                                                               System.out.println(z);
+                                                           }
+                                                               @Override
+                            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+                            }
+
+                        }, sensor, SensorManager.SENSOR_DELAY_FASTEST);
+
+
 //                                if(show.containsKey("confidence")){
 //                                    show.put("x", x);
 //                                    show.put("y", y);
