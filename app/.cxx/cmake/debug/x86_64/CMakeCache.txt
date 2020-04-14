@@ -23,6 +23,9 @@ ANDROID_NDK:UNINITIALIZED=/Users/jing/Library/Android/sdk/ndk
 //No help, variable specified on the command line.
 ANDROID_PLATFORM:UNINITIALIZED=android-21
 
+//No help, variable specified on the command line.
+ANDROID_STL:UNINITIALIZED=c++_static
+
 //Archiver
 CMAKE_AR:FILEPATH=/Users/jing/Library/Android/sdk/ndk/toolchains/llvm/prebuilt/darwin-x86_64/bin/x86_64-linux-android-ar
 

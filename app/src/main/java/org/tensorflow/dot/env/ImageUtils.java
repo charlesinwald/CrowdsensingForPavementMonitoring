@@ -68,7 +68,7 @@ public class ImageUtils {
    */
   public static void saveBitmap(final Bitmap bitmap, final String filename) {
     final String root =
-        Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "tensorflow";
+            Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "tensorflow";
     LOGGER.i("Saving %dx%d bitmap to %s.", bitmap.getWidth(), bitmap.getHeight(), root);
     final File myDir = new File(root);
 
@@ -99,17 +99,17 @@ public class ImageUtils {
   private static boolean useNativeConversion = true;
 
   public static void convertYUV420SPToARGB8888(
-      byte[] input,
-      int width,
-      int height,
-      int[] output) {
+          byte[] input,
+          int width,
+          int height,
+          int[] output) {
     if (useNativeConversion) {
       try {
         ImageUtils.convertYUV420SPToARGB8888(input, output, width, height, false);
         return;
       } catch (UnsatisfiedLinkError e) {
         LOGGER.w(
-            "Native YUV420SP -> RGB implementation not found, falling back to Java implementation");
+                "Native YUV420SP -> RGB implementation not found, falling back to Java implementation");
         useNativeConversion = false;
       }
     }
@@ -159,23 +159,23 @@ public class ImageUtils {
 
 
   public static void convertYUV420ToARGB8888(
-      byte[] yData,
-      byte[] uData,
-      byte[] vData,
-      int width,
-      int height,
-      int yRowStride,
-      int uvRowStride,
-      int uvPixelStride,
-      int[] out) {
+          byte[] yData,
+          byte[] uData,
+          byte[] vData,
+          int width,
+          int height,
+          int yRowStride,
+          int uvRowStride,
+          int uvPixelStride,
+          int[] out) {
     if (useNativeConversion) {
       try {
         convertYUV420ToARGB8888(
-            yData, uData, vData, out, width, height, yRowStride, uvRowStride, uvPixelStride, false);
+                yData, uData, vData, out, width, height, yRowStride, uvRowStride, uvPixelStride, false);
         return;
       } catch (UnsatisfiedLinkError e) {
         LOGGER.w(
-            "Native YUV420 -> RGB implementation not found, falling back to Java implementation");
+                "Native YUV420 -> RGB implementation not found, falling back to Java implementation");
         useNativeConversion = false;
       }
     }
@@ -189,9 +189,9 @@ public class ImageUtils {
         int uv_offset = pUV + (i >> 1) * uvPixelStride;
 
         out[yp++] = YUV2RGB(
-            0xff & yData[pY + i],
-            0xff & uData[uv_offset],
-            0xff & vData[uv_offset]);
+                0xff & yData[pY + i],
+                0xff & uData[uv_offset],
+                0xff & vData[uv_offset]);
       }
     }
   }
@@ -209,7 +209,7 @@ public class ImageUtils {
    * @param halfSize If true, downsample to 50% in each dimension, otherwise not.
    */
   private static native void convertYUV420SPToARGB8888(
-      byte[] input, int[] output, int width, int height, boolean halfSize);
+          byte[] input, int[] output, int width, int height, boolean halfSize);
 
   /**
    * Converts YUV420 semi-planar data to ARGB 8888 data using the supplied width
@@ -226,16 +226,16 @@ public class ImageUtils {
    * @param output A pre-allocated array for the ARGB 8:8:8:8 output data.
    */
   private static native void convertYUV420ToARGB8888(
-      byte[] y,
-      byte[] u,
-      byte[] v,
-      int[] output,
-      int width,
-      int height,
-      int yRowStride,
-      int uvRowStride,
-      int uvPixelStride,
-      boolean halfSize);
+          byte[] y,
+          byte[] u,
+          byte[] v,
+          int[] output,
+          int width,
+          int height,
+          int yRowStride,
+          int uvRowStride,
+          int uvPixelStride,
+          boolean halfSize);
 
   /**
    * Converts YUV420 semi-planar data to RGB 565 data using the supplied width
@@ -248,7 +248,7 @@ public class ImageUtils {
    * @param height The height of the input image.
    */
   private static native void convertYUV420SPToRGB565(
-      byte[] input, byte[] output, int width, int height);
+          byte[] input, byte[] output, int width, int height);
 
   /**
    * Converts 32-bit ARGB8888 image data to YUV420SP data.  This is useful, for
@@ -261,7 +261,7 @@ public class ImageUtils {
    * @param height The height of the input image.
    */
   private static native void convertARGB8888ToYUV420SP(
-      int[] input, byte[] output, int width, int height);
+          int[] input, byte[] output, int width, int height);
 
   /**
    * Converts 16-bit RGB565 image data to YUV420SP data.  This is useful, for
@@ -274,7 +274,7 @@ public class ImageUtils {
    * @param height The height of the input image.
    */
   private static native void convertRGB565ToYUV420SP(
-      byte[] input, byte[] output, int width, int height);
+          byte[] input, byte[] output, int width, int height);
 
   /**
    * Returns a transformation matrix from one reference frame into another.
@@ -291,15 +291,19 @@ public class ImageUtils {
    * @return The transformation fulfilling the desired requirements.
    */
   public static Matrix getTransformationMatrix(
-      final int srcWidth,
-      final int srcHeight,
-      final int dstWidth,
-      final int dstHeight,
-      final int applyRotation,
-      final boolean maintainAspectRatio) {
+          final int srcWidth,
+          final int srcHeight,
+          final int dstWidth,
+          final int dstHeight,
+          final int applyRotation,
+          final boolean maintainAspectRatio) {
     final Matrix matrix = new Matrix();
 
     if (applyRotation != 0) {
+      if (applyRotation % 90 != 0) {
+        LOGGER.w("Rotation of %d % 90 != 0", applyRotation);
+      }
+
       // Translate so center of image is at origin.
       matrix.postTranslate(-srcWidth / 2.0f, -srcHeight / 2.0f);
 

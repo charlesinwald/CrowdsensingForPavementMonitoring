@@ -24,7 +24,7 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(MainPage.this, ClassifierActivity.class);
+                intent.setClass(MainPage.this, DetectorActivity.class);
                 startActivity(intent);
             }
         });
