@@ -469,6 +469,10 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.media.ImageReader.OnImageAvailableListener;
 import android.net.Uri;
@@ -507,11 +511,37 @@ import org.tensorflow.dot.tracking.MultiBoxTracker;
 import static android.content.ContentValues.TAG;
 import org.tensorflow.dot.R; // Explicit import needed for internal Google builds.
 
+
+import java.util.Stack;
+
+
+
 /**
  * An activity that uses a TensorFlowMultiBoxDetector and ObjectTracker to detect and then track
  * objects.
  */
-public class DetectorActivity extends CameraActivity implements OnImageAvailableListener {
+public class DetectorActivity extends CameraActivity implements OnImageAvailableListener, SensorEventListener {
+
+  class SizedStack<T> extends Stack<T> {
+    private int maxSize;
+
+    public SizedStack(int size) {
+      super();
+      this.maxSize = size;
+    }
+
+    @Override
+    public T push(T object) {
+      //If the stack is too big, remove elements until it's the right size.
+      while (this.size() >= maxSize) {
+        this.remove(0);
+      }
+      return super.push(object);
+    }
+  }
+
+  Stack<Double[]> acclerometerData = new SizedStack<Double[]>(30);
+
   private static final Logger LOGGER = new Logger();
 
   // Configuration values for the prepackaged multibox model.
@@ -541,11 +571,12 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   private static final String YOLO_OUTPUT_NAMES = "output";
   private static final int YOLO_BLOCK_SIZE = 32;
 
+
   // Which detection model to use: by default uses Tensorflow Object Detection API frozen
   // checkpoints.  Optionally use legacy Multibox (trained using an older version of the API)
   // or YOLO.
   private enum DetectorMode {
-    TF_OD_API, MULTIBOX, YOLO;
+    TF_OD_API, MULTIBOX, YOLO
   }
   private static final DetectorMode MODE = DetectorMode.TF_OD_API;
 
@@ -560,6 +591,12 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   private static final boolean SAVE_PREVIEW_BITMAP = false;
   private static final float TEXT_SIZE_DIP = 10;
+
+  private SensorManager sensorManager;
+  private static double x = 0;
+  private static double y = 0;
+  private static double z = 0;
+
 
   private Integer sensorOrientation;
 
@@ -618,6 +655,10 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                     TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
     borderedText = new BorderedText(textSizePx);
     borderedText.setTypeface(Typeface.MONOSPACE);
+
+    sensorManager=(SensorManager) getSystemService(SENSOR_SERVICE);
+    sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+
 
     tracker = new MultiBoxTracker(this);
 
@@ -678,7 +719,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     cropToFrameTransform = new Matrix();
     frameToCropTransform.invert(cropToFrameTransform);
 
-    trackingOverlay = (OverlayView) findViewById(R.id.tracking_overlay);
+    trackingOverlay = findViewById(R.id.tracking_overlay);
     trackingOverlay.addCallback(
             new DrawCallback() {
               @Override
@@ -819,11 +860,15 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                     croppedBitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
                     byte[] data = baos.toByteArray();
                     getLastLocation();
+
+
     //                show.put("longitude",longtitude+"");
     //                show.put("latitude",latitude+"");
     //                show.put("confidence", result.getConfidence()+"");
     //                show.put("type",result.getTitle());
     //                dataMap.put(data, show);
+                    Log.d("XYZ","XYZ here?");
+                    Log.d("stack", acclerometerData.get(0) + " " + acclerometerData.get(1) + " " + acclerometerData.get(0));
 
                     getUrl(data,longtitude,latitude,result.getConfidence(),result.getTitle());
                   }
@@ -857,6 +902,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
             Spot spot = new Spot(longtitude,latitude,confidence,uri.toString(),type);
             spotRef.child(reportId).setValue(spot);
 
+            //TODO send the x,y,z and confidence level to backend
+
           }
         });
       }
@@ -876,5 +923,20 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   @Override
   public void onSetDebug(final boolean debug) {
     detector.enableStatLogging(debug);
+  }
+
+  @Override
+  public void onAccuracyChanged(Sensor arg0, int arg1) {
+  }
+
+  @Override
+  public void onSensorChanged(SensorEvent event) {
+    if (event.sensor.getType()==Sensor.TYPE_ACCELEROMETER){
+      x=event.values[0];
+      y=event.values[1];
+      z=event.values[2];
+      acclerometerData.push(new Double[]{x,y,z});
+    }
+
   }
 }
