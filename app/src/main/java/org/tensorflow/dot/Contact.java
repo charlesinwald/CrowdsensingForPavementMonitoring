@@ -7,6 +7,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class Contact extends AppCompatActivity {
 
     private EditText et1;
@@ -23,6 +30,12 @@ public class Contact extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!et1.getText().toString().equals("")){
+                    final DatabaseReference fbRef = FirebaseDatabase.getInstance().getReference("feedback");
+                    Date date=new Date();
+                    SimpleDateFormat sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault());
+                    sfd.format(new Date());
+                    fbRef.child(date.toString()).setValue(et1.getText().toString());
+
                     Toast.makeText(Contact.this,"Thanks! We have received.",Toast.LENGTH_SHORT).show();
                     et1.setText("");
                 }else{
