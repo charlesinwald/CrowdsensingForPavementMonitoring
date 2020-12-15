@@ -1465,6 +1465,7 @@ drawable notify_panel_notification_icon_bg
 drawable person
 drawable privacy
 drawable profile
+drawable purpose
 drawable test_custom_background
 drawable tile
 drawable tooltip_frame_dark
@@ -1699,6 +1700,7 @@ id pin
 id privacyBtn
 id progress_circular
 id progress_horizontal
+id purposeBtn
 id radio
 id results
 id right
@@ -1771,6 +1773,7 @@ id textSpacerNoTitle
 id textStart
 id textView
 id textView2
+id textView3
 id textView9
 id text_input_end_icon
 id text_input_start_icon
@@ -1931,6 +1934,7 @@ layout notification_template_part_chronometer
 layout notification_template_part_time
 layout personinfo
 layout privacy
+layout purpose
 layout register
 layout select_dialog_item_material
 layout select_dialog_multichoice_material

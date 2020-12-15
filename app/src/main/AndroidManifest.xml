@@ -66,6 +66,10 @@
             android:parentActivityName="org.tensorflow.dot.MainPage">
 
         </activity>
+        <activity android:name="org.tensorflow.dot.Purpose"
+            android:parentActivityName="org.tensorflow.dot.MainPage">
+
+        </activity>
 
         <activity android:name="org.tensorflow.dot.DetectorActivity"
                   android:screenOrientation="portrait"

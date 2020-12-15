@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/jing/Documents/Lehigh/Study/20Spring/DOT-Application/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml",
+            "outputFile": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
-                    "source": "/Users/jing/Documents/Lehigh/Study/20Spring/DOT-Application/app/src/main/res/values-v11/template-styles.xml",
+                    "source": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\src\\main\\res\\values-v11\\template-styles.xml",
                     "from": {
                         "startLines": "19",
                         "startColumns": "4",
-                        "startOffsets": "663",
+                        "startOffsets": "682",
                         "endColumns": "65",
-                        "endOffsets": "724"
+                        "endOffsets": "743"
                     },
                     "to": {
                         "startLines": "15",
@@ -21,14 +21,14 @@
                     }
                 },
                 {
-                    "source": "/Users/jing/Documents/Lehigh/Study/20Spring/DOT-Application/app/src/main/res/values-v11/styles.xml",
+                    "source": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\src\\main\\res\\values-v11\\styles.xml",
                     "from": {
                         "startLines": "7,19,11",
                         "startColumns": "2,2,2",
-                        "startOffsets": "210,763,340",
+                        "startOffsets": "217,782,351",
                         "endLines": "9,21,17",
                         "endColumns": "10,10,10",
-                        "endOffsets": "336,927,759"
+                        "endOffsets": "345,948,776"
                     },
                     "to": {
                         "startLines": "2,5,8",

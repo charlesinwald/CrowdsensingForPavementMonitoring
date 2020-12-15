@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainPage extends AppCompatActivity {
 
-    private Button button1, button2, button3, button4;
+    private Button button1, button2, button3, button4, button5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class MainPage extends AppCompatActivity {
 //        button2 = (Button) findViewById(R.id.personBtn);
         button3 = (Button) findViewById(R.id.contactBtn);
         button4 = (Button) findViewById(R.id.privacyBtn);
+        button5 = (Button) findViewById(R.id.purposeBtn);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +53,15 @@ public class MainPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainPage.this, Privacy.class);
+                startActivity(intent);
+            }
+        });
+
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainPage.this, Purpose.class);
                 startActivity(intent);
             }
         });
