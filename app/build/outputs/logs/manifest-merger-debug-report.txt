@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-88:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-88:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-88:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-88:12
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
 MERGED from [org.tensorflow:tensorflow-android:1.5.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\5d2cf2dd2fdc82193f6200d60d923008\tensorflow-android-1.5.0\AndroidManifest.xml:2:1-8:12
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\e7aad8c8179f942c9a8041a4bfa60c52\play-services-location-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\88b8882e6a15c728169a63194a12dedc\material-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -11,13 +11,13 @@ MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\ranra\.gradle\caches\t
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\81a362b35962fa2496d450cbee5c4ecc\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-core:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\9d64ff6d5b51d769169b6cbd57613534\firebase-core-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-analytics:17.2.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\f15f2c10dd03afadad158d010498ad07\firebase-analytics-17.2.2\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\874c23737bb823accb64b8c68ad31d78\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.gridlayout:gridlayout:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\b939b5c795beca0311aa62beaaa2a725\gridlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82653396968af777fdb1f59f7c3ba8c3\play-services-maps-17.0.0\AndroidManifest.xml:17:1-38:12
 MERGED from [com.google.firebase:firebase-storage:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\0f6d031d13d6f6e74a025b94169d16d3\jetified-firebase-storage-17.0.0\AndroidManifest.xml:15:1-37:12
 MERGED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\ccd405cd87d778df13bfd90a19d39606\jetified-firebase-auth-17.0.0\AndroidManifest.xml:17:1-42:12
 MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\76ebe0f8a0db11632e8d84aa8cf05b0f\jetified-firebase-database-17.0.0\AndroidManifest.xml:15:1-36:12
 MERGED from [com.google.android.gms:play-services-plus:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\045ac96cc432cb36c958b8f3f6d2d936\play-services-plus-17.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82932ddad6c31d60eecb122c7ce1f5bc\glide-4.11.0\AndroidManifest.xml:2:1-12:12
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\874c23737bb823accb64b8c68ad31d78\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\18aef99003f3fe28e1705fbf98788f03\jetified-firebase-auth-interop-17.0.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\db36bc19dd887caeb8d4174978c3626b\play-services-flags-16.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-audience:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\3775a366b786733d97f055dae19e3690\play-services-audience-17.0.0\AndroidManifest.xml:17:1-24:12
@@ -37,6 +37,7 @@ MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\ranra\.
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\103107df96b740ba2a049c2d6e82f159\firebase-measurement-connector-18.0.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\bb7f6bd7a0a2da7328d8fd0afe87a97a\play-services-ads-identifier-17.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\d523b0bb6a7d5b9befc69cfef963d78f\jetified-play-services-basement-17.0.0\AndroidManifest.xml:17:1-28:12
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82932ddad6c31d60eecb122c7ce1f5bc\glide-4.11.0\AndroidManifest.xml:2:1-12:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\54aa53a8adaadc2968ca0bcce2d1462a\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\d888c399867a8f38619658b14b6b7815\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\03427883b80ab78f3e6a356eba4df863\appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -73,21 +74,23 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\ranra\.gradle\caches
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\ba1ca6d966f0903bfbc154284174b676\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\cf1beec41d3606c2f878b1c5dd26a539\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\5e0444443ffb82f923834973bbf621d3\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\1a717ba2f80e52ff7ca6f05929a83889\library-1.0.4\AndroidManifest.xml:1:106-7:12
+MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\ca9e6033c6cac543abd881b648d510ba\library-1.0.2\AndroidManifest.xml:1:116-8:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\a87adde9bea17e438b811efad9bbaa78\firebase-database-collection-16.0.1\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-88:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-88:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-88:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
 	package
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:19:5-33
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-88:12
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-88:12
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:11-69
@@ -103,12 +106,16 @@ uses-feature#android.hardware.camera.autofocus
 ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:23:5-70
 	android:name
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:23:19-67
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:24:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:24:5-80
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:25:5-80
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:24:22-78
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:25:22-78
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:25:5-67
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:26:5-67
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82653396968af777fdb1f59f7c3ba8c3\play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82653396968af777fdb1f59f7c3ba8c3\play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.firebase:firebase-storage:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\0f6d031d13d6f6e74a025b94169d16d3\jetified-firebase-storage-17.0.0\AndroidManifest.xml:27:5-67
@@ -126,9 +133,9 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\08e5ab55bcfafa0ef1249a5090a8d0c4\play-services-measurement-sdk-api-17.2.2\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\08e5ab55bcfafa0ef1249a5090a8d0c4\play-services-measurement-sdk-api-17.2.2\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:25:22-64
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:26:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:26:5-79
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:27:5-79
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82653396968af777fdb1f59f7c3ba8c3\play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82653396968af777fdb1f59f7c3ba8c3\play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-storage:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\0f6d031d13d6f6e74a025b94169d16d3\jetified-firebase-storage-17.0.0\AndroidManifest.xml:26:5-79
@@ -146,17 +153,17 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\08e5ab55bcfafa0ef1249a5090a8d0c4\play-services-measurement-sdk-api-17.2.2\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\08e5ab55bcfafa0ef1249a5090a8d0c4\play-services-measurement-sdk-api-17.2.2\AndroidManifest.xml:24:5-79
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:26:22-76
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:27:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:27:5-81
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:28:5-81
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:27:22-78
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:28:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:28:5-79
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:29:5-79
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:28:22-76
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:29:22-76
 application
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:31:5-86:19
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:32:5-91:19
 MERGED from [org.tensorflow:tensorflow-android:1.5.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\5d2cf2dd2fdc82193f6200d60d923008\tensorflow-android-1.5.0\AndroidManifest.xml:5:5-6:19
 MERGED from [org.tensorflow:tensorflow-android:1.5.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\5d2cf2dd2fdc82193f6200d60d923008\tensorflow-android-1.5.0\AndroidManifest.xml:5:5-6:19
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\e7aad8c8179f942c9a8041a4bfa60c52\play-services-location-17.0.0\AndroidManifest.xml:7:5-20
@@ -179,8 +186,6 @@ MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ranra\.gradl
 MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\76ebe0f8a0db11632e8d84aa8cf05b0f\jetified-firebase-database-17.0.0\AndroidManifest.xml:28:5-34:19
 MERGED from [com.google.android.gms:play-services-plus:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\045ac96cc432cb36c958b8f3f6d2d936\play-services-plus-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-plus:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\045ac96cc432cb36c958b8f3f6d2d936\play-services-plus-17.0.0\AndroidManifest.xml:22:5-20
-MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82932ddad6c31d60eecb122c7ce1f5bc\glide-4.11.0\AndroidManifest.xml:10:5-20
-MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82932ddad6c31d60eecb122c7ce1f5bc\glide-4.11.0\AndroidManifest.xml:10:5-20
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\18aef99003f3fe28e1705fbf98788f03\jetified-firebase-auth-interop-17.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\18aef99003f3fe28e1705fbf98788f03\jetified-firebase-auth-interop-17.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.android.gms:play-services-audience:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\3775a366b786733d97f055dae19e3690\play-services-audience-17.0.0\AndroidManifest.xml:22:5-20
@@ -215,84 +220,96 @@ MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\User
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\bb7f6bd7a0a2da7328d8fd0afe87a97a\play-services-ads-identifier-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\d523b0bb6a7d5b9befc69cfef963d78f\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\d523b0bb6a7d5b9befc69cfef963d78f\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82932ddad6c31d60eecb122c7ce1f5bc\glide-4.11.0\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82932ddad6c31d60eecb122c7ce1f5bc\glide-4.11.0\AndroidManifest.xml:10:5-20
 MERGED from [androidx.core:core:1.1.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\331630a23dfa1f0594bcf54d5352aa36\core-1.1.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.1.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\331630a23dfa1f0594bcf54d5352aa36\core-1.1.0\AndroidManifest.xml:24:5-89
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\c74234a4fc5b4534d0505d98429db8ec\gifdecoder-4.11.0\AndroidManifest.xml:9:5-20
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\c74234a4fc5b4534d0505d98429db8ec\gifdecoder-4.11.0\AndroidManifest.xml:9:5-20
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\f3d3c9ef953af10d388177573d1cb616\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\f3d3c9ef953af10d388177573d1cb616\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\1a717ba2f80e52ff7ca6f05929a83889\library-1.0.4\AndroidManifest.xml:5:5-19
+MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\1a717ba2f80e52ff7ca6f05929a83889\library-1.0.4\AndroidManifest.xml:5:5-19
+MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\ca9e6033c6cac543abd881b648d510ba\library-1.0.2\AndroidManifest.xml:5:5-6:19
+MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\ca9e6033c6cac543abd881b648d510ba\library-1.0.2\AndroidManifest.xml:5:5-6:19
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\331630a23dfa1f0594bcf54d5352aa36\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:34:9-36
-	android:largeHeap
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:32:9-33
-	android:icon
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:35:9-45
+	android:largeHeap
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:33:9-33
+	android:icon
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:36:9-45
 	android:allowBackup
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:31:18-44
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:32:18-44
 	android:theme
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:36:9-53
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:37:9-53
 	android:usesCleartextTraffic
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:33:9-44
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:34:9-44
 activity#org.tensorflow.dot.LoginActivity
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:38:9-44:20
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:39:9-45:20
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:38:19-66
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:39:19-66
 activity#org.tensorflow.dot.RegisterActivity
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:46:9-50:20
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:47:9-51:20
 	android:parentActivityName
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:48:13-74
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:49:13-74
 	android:exported
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:47:13-36
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:48:13-36
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:46:19-69
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:47:19-69
 activity#org.tensorflow.dot.MainPage
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:51:9-56:20
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:52:9-57:20
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:51:19-61
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:52:19-61
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:52:13-55:29
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:53:13-56:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:53:17-69
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:54:17-69
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:53:25-66
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:54:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:54:17-77
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:55:17-77
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:54:27-74
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:55:27-74
 activity#org.tensorflow.dot.Profile
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:57:9-60:20
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:58:9-61:20
 	android:parentActivityName
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:58:13-69
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:59:13-69
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:57:19-60
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:58:19-60
 activity#org.tensorflow.dot.Contact
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:61:9-64:20
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:62:9-65:20
 	android:parentActivityName
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:62:13-69
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:63:13-69
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:61:19-60
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:62:19-60
 activity#org.tensorflow.dot.Privacy
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:65:9-68:20
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:66:9-69:20
 	android:parentActivityName
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:66:13-69
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:67:13-69
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:65:19-60
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:66:19-60
 activity#org.tensorflow.dot.Purpose
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:69:9-72:20
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:70:9-73:20
 	android:parentActivityName
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:70:13-69
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:71:13-69
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:69:19-60
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:70:19-60
+activity#org.tensorflow.dot.viewImages
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:74:9-77:20
+	android:parentActivityName
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:75:13-69
+	android:name
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:74:19-63
 activity#org.tensorflow.dot.DetectorActivity
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:74:9-83:20
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:79:9-88:20
 	android:screenOrientation
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:75:19-55
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:80:19-55
 	android:parentActivityName
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:77:19-75
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:82:19-75
 	android:name
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:74:19-69
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:79:19-69
 uses-sdk
 INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
@@ -309,6 +326,10 @@ MERGED from [com.google.firebase:firebase-core:17.0.0] C:\Users\ranra\.gradle\ca
 MERGED from [com.google.firebase:firebase-core:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\9d64ff6d5b51d769169b6cbd57613534\firebase-core-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:17.2.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\f15f2c10dd03afadad158d010498ad07\firebase-analytics-17.2.2\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:17.2.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\f15f2c10dd03afadad158d010498ad07\firebase-analytics-17.2.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\874c23737bb823accb64b8c68ad31d78\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\874c23737bb823accb64b8c68ad31d78\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.gridlayout:gridlayout:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\b939b5c795beca0311aa62beaaa2a725\gridlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.gridlayout:gridlayout:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\b939b5c795beca0311aa62beaaa2a725\gridlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82653396968af777fdb1f59f7c3ba8c3\play-services-maps-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82653396968af777fdb1f59f7c3ba8c3\play-services-maps-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-storage:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\0f6d031d13d6f6e74a025b94169d16d3\jetified-firebase-storage-17.0.0\AndroidManifest.xml:20:5-22:41
@@ -319,10 +340,6 @@ MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ranra\.gradl
 MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\76ebe0f8a0db11632e8d84aa8cf05b0f\jetified-firebase-database-17.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.android.gms:play-services-plus:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\045ac96cc432cb36c958b8f3f6d2d936\play-services-plus-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-plus:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\045ac96cc432cb36c958b8f3f6d2d936\play-services-plus-17.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82932ddad6c31d60eecb122c7ce1f5bc\glide-4.11.0\AndroidManifest.xml:6:5-8:41
-MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82932ddad6c31d60eecb122c7ce1f5bc\glide-4.11.0\AndroidManifest.xml:6:5-8:41
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\874c23737bb823accb64b8c68ad31d78\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\874c23737bb823accb64b8c68ad31d78\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\18aef99003f3fe28e1705fbf98788f03\jetified-firebase-auth-interop-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\18aef99003f3fe28e1705fbf98788f03\jetified-firebase-auth-interop-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\db36bc19dd887caeb8d4174978c3626b\play-services-flags-16.0.1\AndroidManifest.xml:20:5-44
@@ -361,6 +378,8 @@ MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\User
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\bb7f6bd7a0a2da7328d8fd0afe87a97a\play-services-ads-identifier-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\d523b0bb6a7d5b9befc69cfef963d78f\jetified-play-services-basement-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\d523b0bb6a7d5b9befc69cfef963d78f\jetified-play-services-basement-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82932ddad6c31d60eecb122c7ce1f5bc\glide-4.11.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82932ddad6c31d60eecb122c7ce1f5bc\glide-4.11.0\AndroidManifest.xml:6:5-8:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\54aa53a8adaadc2968ca0bcce2d1462a\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\54aa53a8adaadc2968ca0bcce2d1462a\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\d888c399867a8f38619658b14b6b7815\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -433,6 +452,10 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\ranra\.g
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\cf1beec41d3606c2f878b1c5dd26a539\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\5e0444443ffb82f923834973bbf621d3\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\5e0444443ffb82f923834973bbf621d3\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\1a717ba2f80e52ff7ca6f05929a83889\library-1.0.4\AndroidManifest.xml:3:5-72
+MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\1a717ba2f80e52ff7ca6f05929a83889\library-1.0.4\AndroidManifest.xml:3:5-72
+MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\ca9e6033c6cac543abd881b648d510ba\library-1.0.2\AndroidManifest.xml:3:5-72
+MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\ca9e6033c6cac543abd881b648d510ba\library-1.0.2\AndroidManifest.xml:3:5-72
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\a87adde9bea17e438b811efad9bbaa78\firebase-database-collection-16.0.1\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\a87adde9bea17e438b811efad9bbaa78\firebase-database-collection-16.0.1\AndroidManifest.xml:5:5-44
 INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
@@ -446,9 +469,7 @@ INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\Android
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-88:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4
-uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-88:12 reason: tensorflow.contrib.android requested WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4
 uses-feature#0x00020000
 ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82653396968af777fdb1f59f7c3ba8c3\play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
 	android:glEsVersion

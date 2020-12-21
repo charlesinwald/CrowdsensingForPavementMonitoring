@@ -1,7 +1,10 @@
 package org.tensorflow.dot;
 
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -11,7 +14,9 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.location.Location;
 import android.media.ImageReader.OnImageAvailableListener;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Environment;
 import android.os.SystemClock;
 import android.util.Log;
 import android.util.Size;
@@ -35,6 +40,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -367,6 +375,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     //                dataMap.put(data, show);
 
                     getUrl(data,longtitude,latitude,result.getConfidence(),result.getTitle());
+                    //saveImage(croppedBitmap);
                   }
                 }
 
@@ -380,8 +389,32 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     return dataMap;
   }
 
+    private void saveImage(Bitmap bmp) {
+      // Save image in UploadedImages
+      File appDir = getExternalFilesDir("uploaded images");
+      if (!appDir.exists()) {
+        appDir.mkdir();
+      }
+      String fileName = System.currentTimeMillis() + ".jpg";
+      //String fileName = name + ".jpg";
+      File file = new File(appDir, fileName);
+      try {
+        FileOutputStream fos = new FileOutputStream(file);
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+        //Log.i("testresult", file.toString());
+        fos.flush();
+        fos.close();
+      } catch (FileNotFoundException e) {
+        e.printStackTrace();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      MediaScannerConnection.scanFile(this, new String[]{file.toString()}, new String[]{file.getName()}, null);
+    }
 
-    private void getUrl(final byte[] img, final float longtitude, final float latitude, final float confidence, final String type){
+
+
+  private void getUrl(final byte[] img, final float longtitude, final float latitude, final float confidence, final String type){
 //    StorageReference storageRef = FirebaseStorage.getInstance().getReference();
 //    final DatabaseReference spotRef = FirebaseDatabase.getInstance().getReference("spot");
 //    final String reportId = spotRef.push().getKey();
@@ -413,7 +446,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
           if(!dataSnapshot.exists() || Float.parseFloat(dataSnapshot.getValue().toString())<confidence) {
-
+            Bitmap new_bit = BitmapFactory.decodeByteArray(img , 0,  img.length);
+            saveImage(new_bit);
             UploadTask uploadTask = imgRef.putBytes(img);
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
               @Override
