@@ -1820,6 +1820,7 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id usage_example_gridview
 id useLogo
 id vertical
 id viewImagesBtn
@@ -1891,6 +1892,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_camera
+layout activity_usage_example_gridview
 layout camera_connection_fragment
 layout camera_connection_fragment_stylize
 layout camera_connection_fragment_tracking
@@ -1912,6 +1914,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout listview_item_image
 layout login
 layout mainpage
 layout mtrl_alert_dialog
@@ -2876,6 +2879,7 @@ styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
+xml photo_path
 xml standalone_badge
 xml standalone_badge_gravity_bottom_end
 xml standalone_badge_gravity_bottom_start

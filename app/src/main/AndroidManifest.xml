@@ -78,7 +78,6 @@
 
         <activity android:name="org.tensorflow.dot.DetectorActivity"
                   android:screenOrientation="portrait"
-
                   android:parentActivityName="org.tensorflow.dot.MainPage">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
@@ -86,7 +85,6 @@
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
-
 
     </application>
 

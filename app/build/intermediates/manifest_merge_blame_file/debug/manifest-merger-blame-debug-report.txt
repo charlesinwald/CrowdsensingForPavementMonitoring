@@ -74,7 +74,7 @@
 45-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:26:22-107
 46
 47    <application
-47-->C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:32:5-91:19
+47-->C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:32:5-89:19
 48        android:allowBackup="true"
 48-->C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:32:18-44
 49        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -158,11 +158,11 @@
 93-->C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:75:13-69
 94        </activity>
 95        <activity
-95-->C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:79:9-88:20
+95-->C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:79:9-87:20
 96            android:name="org.tensorflow.dot.DetectorActivity"
 96-->C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:79:19-69
 97            android:parentActivityName="org.tensorflow.dot.MainPage"
-97-->C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:82:19-75
+97-->C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:81:19-75
 98            android:screenOrientation="portrait" >
 98-->C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:80:19-55
 99

@@ -392,6 +392,10 @@
         "source": "C:\\Users\\ranra\\.gradle\\caches\\transforms-2\\files-2.1\\fb8f7031ef66b8147647717c2aecca12\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_usage_example_gridview.xml.flat",
+        "source": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\src\\main\\res\\layout\\activity_usage_example_gridview.xml"
+    },
+    {
         "merged": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_checkbox_unchecked_to_checked_mtrl_animation.xml.flat",
         "source": "C:\\Users\\ranra\\.gradle\\caches\\transforms-2\\files-2.1\\fb8f7031ef66b8147647717c2aecca12\\appcompat-1.1.0\\res\\drawable\\btn_checkbox_unchecked_to_checked_mtrl_animation.xml"
     },
@@ -688,6 +692,10 @@
         "source": "C:\\Users\\ranra\\.gradle\\caches\\transforms-2\\files-2.1\\fb8f7031ef66b8147647717c2aecca12\\appcompat-1.1.0\\res\\color-v23\\abc_tint_edittext.xml"
     },
     {
+        "merged": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\build\\intermediates\\res\\merged\\debug\\xml_photo_path.xml.flat",
+        "source": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\src\\main\\res\\xml\\photo_path.xml"
+    },
+    {
         "merged": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\build\\intermediates\\res\\merged\\debug\\layout_test_toolbar.xml.flat",
         "source": "C:\\Users\\ranra\\.gradle\\caches\\transforms-2\\files-2.1\\88b8882e6a15c728169a63194a12dedc\\material-1.1.0\\res\\layout\\test_toolbar.xml"
     },
@@ -850,6 +858,10 @@
     {
         "merged": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\build\\intermediates\\res\\merged\\debug\\anim_btn_radio_to_off_mtrl_dot_group_animation.xml.flat",
         "source": "C:\\Users\\ranra\\.gradle\\caches\\transforms-2\\files-2.1\\fb8f7031ef66b8147647717c2aecca12\\appcompat-1.1.0\\res\\anim\\btn_radio_to_off_mtrl_dot_group_animation.xml"
+    },
+    {
+        "merged": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\build\\intermediates\\res\\merged\\debug\\layout_listview_item_image.xml.flat",
+        "source": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\src\\main\\res\\layout\\listview_item_image.xml"
     },
     {
         "merged": "C:\\Users\\ranra\\StudioProjects\\DOT-Application\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light_focused.xml.flat",

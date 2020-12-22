@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-91:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-91:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-91:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-91:12
 MERGED from [org.tensorflow:tensorflow-android:1.5.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\5d2cf2dd2fdc82193f6200d60d923008\tensorflow-android-1.5.0\AndroidManifest.xml:2:1-8:12
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\e7aad8c8179f942c9a8041a4bfa60c52\play-services-location-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\88b8882e6a15c728169a63194a12dedc\material-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -77,20 +77,20 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\ranra\.gradle\cache
 MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\1a717ba2f80e52ff7ca6f05929a83889\library-1.0.4\AndroidManifest.xml:1:106-7:12
 MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\ca9e6033c6cac543abd881b648d510ba\library-1.0.2\AndroidManifest.xml:1:116-8:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\a87adde9bea17e438b811efad9bbaa78\firebase-database-collection-16.0.1\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
-INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-91:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-91:12
+INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-91:12
 	package
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:19:5-33
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-91:12
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-91:12
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:11-69
@@ -163,7 +163,7 @@ ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidMan
 	android:name
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:29:22-76
 application
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:32:5-91:19
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:32:5-89:19
 MERGED from [org.tensorflow:tensorflow-android:1.5.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\5d2cf2dd2fdc82193f6200d60d923008\tensorflow-android-1.5.0\AndroidManifest.xml:5:5-6:19
 MERGED from [org.tensorflow:tensorflow-android:1.5.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\5d2cf2dd2fdc82193f6200d60d923008\tensorflow-android-1.5.0\AndroidManifest.xml:5:5-6:19
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\e7aad8c8179f942c9a8041a4bfa60c52\play-services-location-17.0.0\AndroidManifest.xml:7:5-20
@@ -303,11 +303,11 @@ ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidMan
 	android:name
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:74:19-63
 activity#org.tensorflow.dot.DetectorActivity
-ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:79:9-88:20
+ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:79:9-87:20
 	android:screenOrientation
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:80:19-55
 	android:parentActivityName
-		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:82:19-75
+		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:81:19-75
 	android:name
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:79:19-69
 uses-sdk
@@ -469,7 +469,7 @@ INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\Android
 		ADDED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-93:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4
+IMPLIED from C:\Users\ranra\StudioProjects\DOT-Application\app\src\main\AndroidManifest.xml:18:1-91:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4
 uses-feature#0x00020000
 ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ranra\.gradle\caches\transforms-2\files-2.1\82653396968af777fdb1f59f7c3ba8c3\play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
