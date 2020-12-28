@@ -7155,6 +7155,7 @@ public final class R {
     public static final int tile=0x7f0700b5;
     public static final int tooltip_frame_dark=0x7f0700b6;
     public static final int tooltip_frame_light=0x7f0700b7;
+    public static final int view=0x7f0700b8;
   }
   public static final class id {
     public static final int ALT=0x7f080000;
