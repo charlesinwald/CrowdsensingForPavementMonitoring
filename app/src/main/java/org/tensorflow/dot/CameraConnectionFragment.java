@@ -224,7 +224,6 @@ public class CameraConnectionFragment extends Fragment {
    */
   private final int layout;
 
-
   private final ConnectionCallback cameraConnectionCallback;
 
   private CameraConnectionFragment(

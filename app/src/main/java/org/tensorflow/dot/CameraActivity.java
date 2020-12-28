@@ -171,10 +171,6 @@ public abstract class CameraActivity extends Activity
 
   private Button button1;
 
-
-
-
-
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
     LOGGER.d("onCreate " + this);
