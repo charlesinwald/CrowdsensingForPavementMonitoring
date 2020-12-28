@@ -344,30 +344,6 @@ public abstract class CameraActivity extends Activity
     handler = new Handler(handlerThread.getLooper());
 
 
-//    Timer timer = new Timer();
-//
-//    TimerTask timerTask = new TimerTask() {
-//      @Override
-//      public void run() {
-//          for(byte[] key:map.keySet()){
-//
-//            if(map.get(key).containsKey("confidence")){
-//              getUrl(key);
-//
-//              Log.d(TAG, "上传了！！！！！！");
-//            }
-//
-//            break;
-//          }
-//        }
-//
-//
-//
-//    };
-//
-//    timer.schedule(timerTask,
-//            1000,//延迟1秒执行
-//            1000);//周期时间
   }
 
   @Override
