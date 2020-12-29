@@ -152,7 +152,6 @@ public class RegisterActivity extends AppCompatActivity {
                                         }
                                     }
                                 });
-//                        final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                         Toast.makeText(RegisterActivity.this,"Register Successfully",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent();
                         intent.setClass(RegisterActivity.this, LoginActivity.class);
