@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+//Register functionality implementation
 package org.tensorflow.dot;
 
 import android.content.Intent;

@@ -22,6 +22,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+//create the buttons in the Main Page
 public class MainPage extends AppCompatActivity {
 
     private Button button1, button2, button3, button4, button5, button6;
@@ -34,6 +35,7 @@ public class MainPage extends AppCompatActivity {
         setContentView(R.layout.mainpage);
         button1 = (Button) findViewById(R.id.carBtn);
 //        button2 = (Button) findViewById(R.id.personBtn);
+// the person function we will not use temporarily.
         button3 = (Button) findViewById(R.id.contactBtn);
         button4 = (Button) findViewById(R.id.privacyBtn);
         button5 = (Button) findViewById(R.id.purposeBtn);

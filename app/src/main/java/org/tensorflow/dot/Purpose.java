@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+//Purpose Description Page implementation
 package org.tensorflow.dot;
 
 import android.os.Bundle;

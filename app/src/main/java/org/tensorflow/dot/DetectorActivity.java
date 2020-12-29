@@ -384,14 +384,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                     croppedBitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
                     byte[] data = baos.toByteArray();
                     getLastLocation();
-    //                show.put("longitude",longtitude+"");
-    //                show.put("latitude",latitude+"");
-    //                show.put("confidence", result.getConfidence()+"");
-    //                show.put("type",result.getTitle());
-    //                dataMap.put(data, show);
-
                     getUrl(data,longtitude,latitude,result.getConfidence(),result.getTitle());
-                    //saveImage(croppedBitmap);
                   }
                 }
 
@@ -406,18 +399,16 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   }
 
     private void saveImage(Bitmap bmp) {
-      // Save image in UploadedImages
+      // Save image in file 'uploaded images'
       File appDir = getExternalFilesDir("uploaded images");
       if (!appDir.exists()) {
         appDir.mkdir();
       }
       String fileName = System.currentTimeMillis() + ".jpg";
-      //String fileName = name + ".jpg";
       File file = new File(appDir, fileName);
       try {
         FileOutputStream fos = new FileOutputStream(file);
         bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-        //Log.i("testresult", file.toString());
         fos.flush();
         fos.close();
       } catch (FileNotFoundException e) {
@@ -429,28 +420,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     }
 
 
-
+// Uploading detected images and save them locally
   private void getUrl(final byte[] img, final float longtitude, final float latitude, final float confidence, final String type){
-//    StorageReference storageRef = FirebaseStorage.getInstance().getReference();
-//    final DatabaseReference spotRef = FirebaseDatabase.getInstance().getReference("spot");
-//    final String reportId = spotRef.push().getKey();
-//    final StorageReference imgRef = storageRef.child("spot").child(reportId+".jpeg");
-//    UploadTask uploadTask = imgRef.putBytes(img);
-//    uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//      @Override
-//      public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//        imgRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//          @Override
-//          public void onSuccess(Uri uri) {
-//            Log.d(TAG, "onSuccess: uri= "+ uri.toString());
-//
-//            Spot spot = new Spot(longtitude,latitude,confidence,uri.toString(),type);
-//            spotRef.child(reportId).setValue(spot);
-//
-//          }
-//        });
-//      }
-//    });
 
       StorageReference storageRef = FirebaseStorage.getInstance().getReference();
       final DatabaseReference spotRef = FirebaseDatabase.getInstance().getReference("new_spot");

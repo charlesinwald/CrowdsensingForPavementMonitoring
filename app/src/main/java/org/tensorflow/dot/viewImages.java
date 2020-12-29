@@ -27,6 +27,7 @@
  *
  */
 
+//Show the saved images in file :'upload images" in Grid View
 package org.tensorflow.dot;
 
 import android.os.Bundle;

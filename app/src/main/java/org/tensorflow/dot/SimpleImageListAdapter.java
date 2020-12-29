@@ -43,6 +43,7 @@ import java.io.File;
 /**
  * Created by norman on 4/10/15.
  */
+// Image Adapter for viewImages in GridView
 public class SimpleImageListAdapter extends ArrayAdapter {
     private Context context;
     private LayoutInflater inflater;
