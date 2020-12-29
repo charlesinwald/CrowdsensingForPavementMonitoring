@@ -41,18 +41,12 @@ import java.io.File;
 public class viewImages extends AppCompatActivity {
 
 
-//    public File files[] = imageDir.listFiles();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         File imageDir = getExternalFilesDir("uploaded images");
-//        if (!imageDir.exists()) {
-//            imageDir.mkdir();
-//            Log.i("testresult", "ImageDir Create");
-//        }
+
         Log.i("testresult", imageDir.toString());
         File[] fileUrls = imageDir.listFiles();
 
