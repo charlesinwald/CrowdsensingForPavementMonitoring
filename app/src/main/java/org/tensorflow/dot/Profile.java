@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-//Profile Functionality implementation
+//Profile Functionality implementation, which not be used temporarily.
 package org.tensorflow.dot;
 
 import android.content.Intent;

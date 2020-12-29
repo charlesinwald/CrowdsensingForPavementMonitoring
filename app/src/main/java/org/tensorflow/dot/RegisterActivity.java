@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-//Register functionality implementation
+//Register functionality implementation, which not be used temporarily.
 package org.tensorflow.dot;
 
 import android.content.Intent;

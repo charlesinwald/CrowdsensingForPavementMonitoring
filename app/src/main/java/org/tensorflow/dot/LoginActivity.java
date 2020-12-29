@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+//Login functionality for user, which not be used temporarily.
 package org.tensorflow.dot;
 
 import android.content.Intent;

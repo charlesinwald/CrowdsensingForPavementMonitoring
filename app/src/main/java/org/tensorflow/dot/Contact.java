@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+//Contact functionality implementation, user can type any text information and send it back to us.
 package org.tensorflow.dot;
 import android.os.Bundle;
 import android.view.View;
