@@ -52,6 +52,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="Road Damage Detector"
         android:largeHeap="true"
+        android:testOnly="true"
         android:theme="@style/Theme.AppCompat.Light"
         android:usesCleartextTraffic="true" >
         <activity android:name="org.tensorflow.dot.LoginActivity" >

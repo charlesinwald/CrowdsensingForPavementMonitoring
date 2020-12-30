@@ -1637,7 +1637,6 @@ id ghost_view
 id ghost_view_holder
 id glide_custom_view_target_tag
 id gone
-id grid01
 id grid_layout
 id group_divider
 id groups
@@ -1651,7 +1650,6 @@ id icon_group
 id icon_only
 id ifRoom
 id image
-id image1
 id imageView
 id info
 id invisible
@@ -1774,7 +1772,6 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
-id switcher
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -1796,7 +1793,6 @@ id textStart
 id textView
 id textView2
 id textView3
-id textView4
 id textView9
 id text_input_end_icon
 id text_input_start_icon
@@ -1897,7 +1893,6 @@ layout activity_usage_example_gridview
 layout camera_connection_fragment
 layout camera_connection_fragment_stylize
 layout camera_connection_fragment_tracking
-layout cell
 layout contact
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -1981,7 +1976,6 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
-layout viewimages
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -2880,7 +2874,6 @@ styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
-xml photo_path
 xml standalone_badge
 xml standalone_badge_gravity_bottom_end
 xml standalone_badge_gravity_bottom_start
