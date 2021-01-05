@@ -1,24 +1,5 @@
-# TensorFlow (1.4.0) Image Classifier Gradle Standalone Port
+![Crowdsensing For Pavement Monitoring](https://i.imgur.com/eo8hlWm.png)
 
-- Clone the project, and checkout the tag `1.4.0`
-- Import it on Android Studio
-- Run it
-- That's all.
+Crowdsensing is the umbrella term for the idea ofindividuals, or rather “crowds”, contribute data through “sens-ing” for a common interest. We have designed and implementeda crowdsensing system solution for low-cost and scalable pave-ment monitoring
 
-This project is a way to get started with TensorFlow Image Classifier quickly.
-
-I am not planning to maintain it. If you need an updated version, build it yourself using hints from this [blog post][blog-post].
-
-
-## Native libraries
-
-Native compiled libraries are embedded in the `1.4.0` tag, so you won't need to install the NDK.  
-However, this means that you cannot change the `org.tensorflow.demo.env.ImageUtils` class.  
-Here's what you need to do if you want, for example, to use a different package name:
-
-* Install the [NDK and build tools][ndk]
-* Checkout the `1.4.0-cmake` tag
-* Modify line 7 of the `app/src/main/cpp/imageutils_jni.cpp` file to specify your new package name
-
-[blog-post]: http://nilhcem.com/android/custom-tensorflow-classifier
-[ndk]: https://developer.android.com/studio/projects/add-native-code.html
+Nationwide, over 19% of the roads are in poor conditionsand require repair, which consequently leads to loss of billionsof dollars a year in congestion and delays. This results inan extra 3.1 billion gallons of fuel wasted. It is desirable toconstantly monitor the pavement condition of the road networkso that preventive maintenance can be timely scheduled andperformed. The task of detecting, classifying and tabulatingdata of pavement conditions is a tedious task. With 4.18million miles of road in the United States, it is intuitivelytime consuming and cost intensive to monitor the conditionsof such a large transportation network. As 77% of this mileageis maintained by local governments, 19% by state, and 4% byfederal and due to budget constraints, a large portion of theroad networks are not monitored.
